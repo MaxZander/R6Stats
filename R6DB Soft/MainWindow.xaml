@@ -1,14 +1,31 @@
 ﻿<Window x:Class="R6DB_Soft.MainWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:R6DB_Soft"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="R6Stats by Max Zander alias (Max-RAVN)" Height="450" Width="800">
     <Grid>
-        <Button Name="test" Height="75" VerticalAlignment="Top" HorizontalAlignment="Left" Width="245" Margin="275,160,0,0" Click="test_Click">
-            TEST
+        <TextBox materialDesign:HintAssist.Hint="Username (only Uplay)" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="44" VerticalAlignment="Top" Margin="10,10,192,0" />
+        <Button Style="{StaticResource MaterialDesignRaisedDarkButton}" Width="100" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Margin="0,24,43,0" IsDefault="True" Click="Button_Click" VerticalAlignment="Top" HorizontalAlignment="Right">
+            OK
         </Button>
+        <Grid HorizontalAlignment="Left" Width="381" Margin="10,59,0,34">
+            <TextBox x:Name="casual_wins" materialDesign:HintAssist.Hint="Wins" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="44" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="361" Margin="10,0,0,265" />
+            <TextBox x:Name="casual_losses" materialDesign:HintAssist.Hint="Losses" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="44" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="361" Margin="10,0,0,216" />
+            <TextBox x:Name="casual_wl" materialDesign:HintAssist.Hint="W/L" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="44" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="361" Margin="10,0,0,167" />
+            <TextBox x:Name="casual_kills" materialDesign:HintAssist.Hint="Kills" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="44" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="361" Margin="10,0,0,118" />
+            <TextBox x:Name="casual_deaths" materialDesign:HintAssist.Hint="Deaths" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="44" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="361" Margin="10,0,0,69" />
+            <TextBox x:Name="casual_kd" materialDesign:HintAssist.Hint="K/D" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="44" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="361" Margin="10,0,0,20" />
+        </Grid>
     </Grid>
 </Window>

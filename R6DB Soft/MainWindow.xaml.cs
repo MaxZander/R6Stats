@@ -26,26 +26,25 @@ namespace R6DB_Soft
         {
             InitializeComponent();
         }
-
         private async void UDStats()
         {
             try
             {
-                string url = "";
-                string jsonString = await AccessTheWebAsync(url);
-                var stats = Stats.FromJson(jsonString);
+                string jsonString = await AccessTheWebAsync(Soft.GetURL("Max-RAVN", "uplay"));
+                var result = Stats.FromJson(jsonString);
+                casual_wins.Text = result.Player.Stats.Casual.Wins.ToString();
+                casual_losses.Text = result.Player.Stats.Casual.Losses.ToString();
+                casual_wl.Text = result.Player.Stats.Casual.Wlr.ToString();
+                casual_kills.Text = result.Player.Stats.Casual.Kills.ToString();
+                casual_deaths.Text = result.Player.Stats.Casual.Deaths.ToString();
+                casual_kd.Text = result.Player.Stats.Casual.Kd.ToString();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-            finally
-            {
-
-            }
         }
-
-        async Task<string> AccessTheWebAsync(string url)
+        public async Task<string> AccessTheWebAsync(string url)
         {
             HttpClient client = new HttpClient();
             Task<string> getStringTask = client.GetStringAsync(url);
@@ -53,7 +52,7 @@ namespace R6DB_Soft
             return urlContents;
         }
 
-        private void test_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             UDStats();
         }
